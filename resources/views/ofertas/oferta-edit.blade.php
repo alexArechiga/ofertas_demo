@@ -13,7 +13,7 @@
         <a href="{{ route('ofertas.index') }}">Volver a la lista de ofertas</a>
     </p>
 
-    <form action="/ofertas" method="POST">
+    <form action="{{ route('ofertas.update', $oferta )}}" method="POST">
         @csrf
         @method('PATCH')
         <label for="titulo">Titulo:</label>

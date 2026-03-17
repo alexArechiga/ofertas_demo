@@ -18,8 +18,7 @@ return new class extends Migration
             $table->string('tienda');
             $table->decimal('precio_original'); 
             $table->decimal('precio_descuento');
-            $table->created_at();
-            $table->updated_at();
+            $table->timestamps();
         });
     }
 

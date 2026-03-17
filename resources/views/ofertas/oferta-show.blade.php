@@ -16,7 +16,8 @@
         <li><strong>Precio Con Descuento:</strong> {{ $oferta->precio_descuento }}</li>
     </ul>
     <p>
-        <a href="{{ route('ofertas.edit', $oferta) }}">Editar</a>
+        <a href="{{ route('ofertas.edit', $oferta) }}">Editar</a><br><br>
+        <a href="{{ route('ofertas.index') }}">Volver a la lista de ofertas</a><br>
         <form action="{{ route('ofertas.destroy', $oferta) }}" method="POST">
             @csrf
             @method('DELETE')
