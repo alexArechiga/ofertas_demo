@@ -13,7 +13,13 @@ return new class extends Migration
     {
         Schema::create('ofertas', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('titulo');
+            $table->date('vigencia');
+            $table->string('tienda');
+            $table->decimal('precio_original'); 
+            $table->decimal('precio_descuento');
+            $table->created_at();
+            $table->updated_at();
         });
     }
 

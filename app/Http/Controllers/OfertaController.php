@@ -12,7 +12,10 @@ class OfertaController extends Controller
      */
     public function index()
     {
-        //
+        return view('ofertas.oferta-index')
+            ->with([
+                'ofertas' => Oferta::all()
+            ]);
     }
 
     /**
@@ -20,7 +23,7 @@ class OfertaController extends Controller
      */
     public function create()
     {
-        //
+        return view('ofertas.oferta-create');
     }
 
     /**
@@ -28,7 +31,23 @@ class OfertaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'titulo' => 'required',
+            'vigencia' => 'required|date',
+            'tienda' => 'required',
+            'precio_original' => 'required',
+            'precio_descuento' => 'required'
+        ]);
+
+        $oferta = new Oferta();
+        $oferta->titulo = $request->titulo;
+        $oferta->vigencia = $request->vigencia;
+        $oferta->tienda = $request->tienda;
+        $oferta->precio_original = $request->precio_original;
+        $oferta->precio_descuento = $request->precio_descuento;
+        $oferta->save();
+
+        return redirect()->route('ofertas.index');
     }
 
     /**
@@ -36,7 +55,10 @@ class OfertaController extends Controller
      */
     public function show(Oferta $oferta)
     {
-        //
+        return view('ofertas.oferta-show')
+            ->with([
+                'oferta' => $oferta
+            ]);
     }
 
     /**
@@ -44,7 +66,10 @@ class OfertaController extends Controller
      */
     public function edit(Oferta $oferta)
     {
-        //
+        return view('ofertas.oferta-edit')
+            ->with([
+                'oferta' => $oferta
+            ]);
     }
 
     /**
@@ -52,7 +77,22 @@ class OfertaController extends Controller
      */
     public function update(Request $request, Oferta $oferta)
     {
-        //
+        $request->validate([
+            'titulo' => 'required',
+            'vigencia' => 'required|date',
+            'tienda' => 'required',
+            'precio_original' => 'required',
+            'precio_descuento' => 'required'
+        ]);
+
+        $oferta->titulo = $request->titulo;
+        $oferta->vigencia = $request->vigencia;
+        $oferta->tienda = $request->tienda;
+        $oferta->precio_original = $request->precio_original;
+        $oferta->precio_descuento = $request->precio_descuento;
+        $oferta->save();
+
+        return redirect()->route('ofertas.show', $oferta);
     }
 
     /**
@@ -60,6 +100,7 @@ class OfertaController extends Controller
      */
     public function destroy(Oferta $oferta)
     {
-        //
+        $oferta->delete();
+        return redirect()->route('ofertas.index');
     }
 }
