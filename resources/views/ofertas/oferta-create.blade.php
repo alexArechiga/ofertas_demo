@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Oferta</title>
-</head>
-<body>
+<x-encabezado-h-t-m-l>
     <h1>Formulario de Oferta</h1>
 
     <p>
@@ -52,5 +44,4 @@
 
         <input type="submit" value="Agregar">
     </form>
-</body>
-</html>
+</x-encabezado-h-t-m-l>
